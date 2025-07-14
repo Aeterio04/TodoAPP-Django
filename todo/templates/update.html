@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+    Update
+{% endblock title %}
+{% block body %}
+
+<div class="container">
+    <h2>Update Task</h2>
+    <form action="/update/{{ edit.id }}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="label" class="form-label">Title</label>
+            <input type="text" class="form-control" name="title" id="title" value={{edit.taskTitle}}
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="text" class="form-control" name="desc" id="desc" value={{edit.taskDesc}}
+                aria-describedby="emailHelp">
+        </div>
+        <!-- <div class="mb-3">
+            <label for="appt" class="form-label">Time</label>
+            <input type="time" class="form-control" name="time" id="time">
+        </div>
+        <div class="mb-3">
+            <label for="appt" class="form-label">Date</label>
+            <input type="date" class="form-control" name="date" id="time">
+        </div> -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock body %}
